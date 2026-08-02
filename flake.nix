@@ -15,12 +15,12 @@
     devShells.${system}.default = pkgs.mkShell {
       buildInputs = with pkgs; [
         quickshell
-        qt6.full
+        # qt6.full
         cage
         playerctl
         awww          # was swww, renamed
         brightnessctl
-        libsForQt5.qt5.qtwayland
+        # libsForQt5.qt5.qtwayland
         qt6.qtwayland
       ];
 
