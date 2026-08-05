@@ -1,0 +1,10 @@
+module Widgets
+
+Workspaces workspaces.qml
+WorkspaceItem WorkspaceItem.qml
+ActiveWindow ActiveWindow.qml
+MusicPill MusicPill.qml
+MusicPopup MusicPopup.qml
+SystemTray SystemTray.qml
+TrayPopup TrayPopup.qml
+TrayMenu TrayMenu.qml

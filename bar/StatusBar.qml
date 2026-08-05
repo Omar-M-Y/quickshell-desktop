@@ -1,25 +1,55 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import "widgets"
-
+import Quickshell.Wayland
+import "."
 
 Scope {
-  Variants {
-    model: Quickshell.screens
+    Variants {
+        model: Quickshell.screens
+        delegate: Component {
+            PanelWindow {
+                id: bar
+                required property var modelData
+                property HyprlandMonitor monitor: Hyprland.monitorFor(modelData)
+                color: "transparent"
+                screen: modelData
+                implicitHeight: 200
+                exclusiveZone: 0
+                exclusionMode: ExclusionMode.Ignore
+                WlrLayershell.layer: WlrLayer.Overlay
+                WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
+                WlrLayershell.namespace: "quickshell:statusbar"
+margins.top: -35
+                anchors {
+                    top: true
+                    left: true
+                    right: true
+                }
 
-    delegate: Component {
-      PanelWindow {
-        id: bar
+                mask: Region {
+                    item: barHitbox
+                }
 
-        required property var modelData
-        property HyprlandMonitor monitor: Hyprland.monitorFor(modelData)
+                Item {
+                    id: barHitbox
+                    x: 0
+                    y: 0
+                    width: bar.width
+                    height: 35
+                }
 
-        color: "transparent"
-        screen: modelData
+                Left {
+                    x: 0
+                    y: 0
+                    monitor: bar.monitor
+                }
 
-        mask 
-      }
+                Right {
+                    anchors.right: parent.right
+                    y: 0
+                }
+            }
+        }
     }
-  }
 }

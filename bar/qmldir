@@ -1,6 +1,7 @@
 module Bar
 
 StatusBar 1.0 StatusBar.qml
-LeftSection 1.0 LeftSection.qml
-CenterSection 1.0 CenterSection.qml
-RightSection 1.0 RightSection.qml
+Left 1.0 Left.qml
+Centre 1.0 Centre.qml
+Right 1.0 Right.qml
+ReservationWindow ReservationWindow.qml
