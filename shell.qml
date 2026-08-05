@@ -1,6 +1,7 @@
 // shell.qml — desktop entry point
 import Quickshell
 import QtQuick
+import "./bar"
 
 ShellRoot {
 
